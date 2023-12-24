@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Redux Theory
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##What is Redux ?
+ React-redux is a state management tool makes it easier to pass these states from one component to another irrespective of their position in the component tree.
+ React-redux provides a store, it's like a container that holds the information (states)  which makes the state inside components easier to maintain.
+ Along with stores, react-redux introduces actions and reducers which work simultaneously with stores to make the state more predictable.
+ 
+ Store: It contains the state of the components which need to be passed to other components.
+ 
+ Actions: These are like tasks you want to perform on the information in the store. They have a type (kind of like a category) and can also carry additional data (payload) if needed.
+ 
+ Reducers: These are special functions that do the actual work when an action is performed. They take the current state and the action, perform some operations, and give back the updated state. This updated state is then used to update the webpage.
 
-## Available Scripts
 
-In the project directory, you can run:
+### Folder Structure
 
-### `npm start`
+In the project directory, you can organize your code with these files:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **action.js:** In this file, you define the actions that need to be performed. Actions are like tasks that describe what should happen. For example, you might have actions like "increment counter" or "decrement counter."
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **reducer.js:** This is where you write the logic for handling actions. You define how the state should change based on different actions. For instance, you implement the logic for incrementing or decrementing the counter in response to specific actions.
 
-### `npm test`
+3. **store.js:** In the store, you keep your root reducer. The store is responsible for holding the current state of your application. The root reducer combines all your reducers into one and is used when creating the store.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Calling Process
 
-### `npm run build`
+### Dispatch >> Action >> Reducer
+When you want to make changes to the state, you follow this process:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Dispatch:** You initiate a state change by dispatching an action. Dispatching is like saying, "Hey, I want to perform this action!"
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Action:** The dispatched action travels to the reducers. Actions contain information about what needs to change in the state. For example, an action might specify that the counter should be incremented.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Reducer:** The reducer receives the action and contains the logic to update the state based on that action. If the action is to increment the counter, the reducer will perform the necessary logic and return the updated state.
 
-### `npm run eject`
+So, in summary, you dispatch an action, which then goes through the reducer to update the state in the store.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
