@@ -1,6 +1,6 @@
 # Redux Theory
 
-##What is Redux ?
+## What is Redux ?
  React-redux is a state management tool makes it easier to pass these states from one component to another irrespective of their position in the component tree.
  React-redux provides a store, it's like a container that holds the information (states)  which makes the state inside components easier to maintain.
  Along with stores, react-redux introduces actions and reducers which work simultaneously with stores to make the state more predictable.
