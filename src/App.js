@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import {incrementNumber, decrementNumber} from './actions/action'
+const App = () => {
+	const myState = useSelector((state)=> state.handleAction);
+	const dispatch = useDispatch();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	<div>
+	  <h1>REDUX</h1>
+	  <button onClick={()=> dispatch(incrementNumber(5))}>+</button><input type='number' value={myState}/><button onClick={()=> dispatch(decrementNumber(5))}>-</button>
+	</div>
+  )
 }
 
-export default App;
+export default App
